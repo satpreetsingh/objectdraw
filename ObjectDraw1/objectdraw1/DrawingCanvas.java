@@ -17,6 +17,9 @@ import java.util.EventListener;
   protected int canvasHeight;
   protected Color penColor = Color.black;
   protected Tool currentTool;
+  
+  protected LinkedList<TwoEndShapeObj> objsOnCanvas = new LinkedList<TwoEndShapeObj>();
+  
     
   /* constructor */
   public DrawingCanvas() {
@@ -83,6 +86,9 @@ import java.util.EventListener;
    imageBufferGraphics.fillRect(0, 0, canvasWidth, canvasHeight);
    imageBufferGraphics.setColor(penColor);
    repaint();
+   
+   this.redrawObjs();
+   objsOnCanvas.clear();
   }
   
   public void setBounds(int x, int y, int width, int height) {
@@ -99,4 +105,10 @@ import java.util.EventListener;
     canvasHeight = height;
   }
   
+  public void redrawObjs() {
+	  for (TwoEndShapeObj obj : objsOnCanvas) {
+		  obj.drawObj(imageBufferGraphics);
+	  }
+		  
+  }
 }

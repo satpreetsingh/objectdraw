@@ -7,7 +7,7 @@ import java.util.EventListener;
 import javax.swing.*;
 import java.net.*;
 
-public class MiniDraw4 extends JApplet  {
+public class ObjectDraw1 extends JApplet  {
 
   protected DrawingCanvas canvas;
   protected ControlPanelView controlPanel;
@@ -16,16 +16,18 @@ public class MiniDraw4 extends JApplet  {
   protected ToolList toolList;
   protected boolean isApplet = false;
 
+  
+  
   /* Constructors  */
 
-  public MiniDraw4(boolean isApplet) { 
+  public ObjectDraw1(boolean isApplet) { 
     this.isApplet = isApplet;
     if (!isApplet) {
       init();
     }
   }
 
-  public MiniDraw4() {
+  public ObjectDraw1() {
     /* invoked as Applet */
     this(true);
   }
@@ -63,7 +65,7 @@ public class MiniDraw4 extends JApplet  {
   }
  
   
-  /* Configure tool list used for ToolBar and MenuBar constructon */
+  /* Configure tool list used for ToolBar and MenuBar construction */
   
   protected ToolList createToolList() {
     ToolList actions = new ToolList();
@@ -80,33 +82,44 @@ public class MiniDraw4 extends JApplet  {
   		getImageIcon("line.jpg"),
   		"Line drawing tool",
   		canvas,
-  		new TwoEndShapeTool(canvas, new LineShape())));
+  		new TwoEndShapeTool(canvas, new LineShapeObj())));
   
     actions.add(
   		new ToolController("Rectangle",
   		getImageIcon("rectangle.jpg"),
   		"Rectangle drawing tool",
   		canvas,
-  		new TwoEndShapeTool(canvas, new RectangleShape())));
+  		new TwoEndShapeTool(canvas, new RectangleShapeObj())));
   		
     actions.add(
   	        new ToolController("Oval",
   	        getImageIcon("oval.jpg"),
   		"Oval drawing tool",
   		canvas,
-  		new TwoEndShapeTool(canvas, new OvalShape())));
+  		new TwoEndShapeTool(canvas, new OvalShapeObj())));
+
     actions.add(
   		new ToolController("Text",
   		getImageIcon("text.jpg"),
   		"text drawing tool",
           	canvas,
   		new TextTool(canvas)));		
+    
+    actions.add(
+      		new ToolController("Select",
+      		getImageIcon("select.jpg"),
+      		"Select tool",
+      		canvas,
+      		new SelectTool(canvas)));        
+    
     actions.add(
   		new ToolController("Eraser",
   		getImageIcon("eraser.jpg"),
   		"Eraser drawing tool",
   		canvas,
   		new EraserTool(canvas)));
+    
+    
   
     return actions;
   }
@@ -132,9 +145,9 @@ public class MiniDraw4 extends JApplet  {
 
   public static void main(String[] args) {
     JFrame frame = new JFrame();
-    frame.setTitle("MiniDraw Fourth Iteration");
+    frame.setTitle("ObjectDraw -- First Iteration");
     frame.getContentPane().setLayout(new BorderLayout());
-    frame.getContentPane().add(new MiniDraw4(false),
+    frame.getContentPane().add(new ObjectDraw1(false),
 			      BorderLayout.CENTER);
     frame.addWindowListener(new AppCloser());
     frame.pack();
