@@ -1,4 +1,5 @@
-package objectdraw.MiniDraw4;
+package objectdraw1;
+
 
 import java.awt.*;
 

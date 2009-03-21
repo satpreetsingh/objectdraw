@@ -1,4 +1,5 @@
-package objectdraw.MiniDraw4;
+package objectdraw1;
+
 
 import java.awt.*;
 import java.awt.event.*;
@@ -11,13 +12,13 @@ public class TwoEndShapeTool implements Tool {
   protected Color saveColor;
   protected TwoEndShape shape;
  
-
+  protected LineShapeObj line = new LineShapeObj(); 
+  
   public TwoEndShapeTool(DrawingCanvas c, TwoEndShape s) {
    canvas = c;
    shape = s;
   }
   
-
  public void mousePressed(MouseEvent e)  {
    /* Establish starting point for next drawing */
    startingMousePosition = e.getPoint();
@@ -80,11 +81,15 @@ public class TwoEndShapeTool implements Tool {
 
     /* Draw final"permanent" figure */
     shape.draw(iBGraphics,
-               startingMousePosition.x, 
+               startingMousePosition.x +10 , 
 	       startingMousePosition.y,
-               e.getPoint().x, 
+               e.getPoint().x +10, 
 	       e.getPoint().y);
-     
+    
+    line.setPoints(startingMousePosition, e.getPoint());
+    line.drawObj(iBGraphics);
+    //iBGraphics.drawLine(startingMousePosition.x + 10, startingMousePosition.y, e.getPoint().x + 10, e.getPoint().y);
+    
     canvas.repaint();   
 
   }
