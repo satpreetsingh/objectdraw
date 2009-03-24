@@ -86,9 +86,9 @@ public class OvalShapeObj implements TwoEndShapeObj {
   }
 
 @Override
-public void pointIsInObject(int x, int y) {
+public boolean isPointInObject(Point p) {
 	// TODO Auto-generated method stub
-	
+	return false;
 }
 
 }

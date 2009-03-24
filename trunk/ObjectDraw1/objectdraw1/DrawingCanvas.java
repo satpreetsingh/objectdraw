@@ -18,7 +18,7 @@ import java.util.EventListener;
   protected Color penColor = Color.black;
   protected Tool currentTool;
   
-  protected LinkedList<TwoEndShapeObj> objsOnCanvas = new LinkedList<TwoEndShapeObj>();
+  protected ArrayList<TwoEndShapeObj> objsOnCanvas = new ArrayList<TwoEndShapeObj>();
   
     
   /* constructor */
