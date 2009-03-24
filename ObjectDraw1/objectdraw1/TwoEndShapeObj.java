@@ -16,6 +16,6 @@ public interface TwoEndShapeObj {
   
   void move(int delX, int delY);
 
-  void pointIsInObject(int x, int y);
+  boolean isPointInObject(Point p);
 
 }

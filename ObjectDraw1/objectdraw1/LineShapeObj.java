@@ -42,10 +42,11 @@ public class LineShapeObj implements TwoEndShapeObj{
   public void move(int delX, int delY) {
   }
 
-@Override
-public void pointIsInObject(int x, int y) {
-	// TODO Auto-generated method stub
-	
-}
+
+	public boolean isPointInObject(Point p) {
+			
+		return true;
+	}
+
   
 }
