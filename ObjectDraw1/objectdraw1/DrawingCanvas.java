@@ -107,6 +107,7 @@ import java.util.EventListener;
   
   public void redrawObjs() {
 	  for (TwoEndShapeObj obj : objsOnCanvas) {
+		  obj.move(10, 0);
 		  obj.drawObj(imageBufferGraphics);
 	  }
 		  

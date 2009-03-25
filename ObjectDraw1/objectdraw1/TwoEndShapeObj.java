@@ -18,4 +18,9 @@ public interface TwoEndShapeObj {
 
   boolean isPointInObject(Point p);
 
+  void setHighlighted();
+  void clearHighlighted();
+  boolean getHighlighted();
+  
+  
 }

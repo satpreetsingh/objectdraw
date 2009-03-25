@@ -13,18 +13,29 @@ public class SelectTool implements Tool {
   }
   
  public void mousePressed(MouseEvent e)  {
-	  for (TwoEndShapeObj obj : canvas.objsOnCanvas) {	
-		  
-		  if (obj.isPointInObject(e.getPoint())) {
-			  canvas.objsOnCanvas.remove(obj);
+
+	 // Highlight OR Un-highlight on button-press
+	 for (TwoEndShapeObj obj : canvas.objsOnCanvas) {			  
+		  if (obj.isPointInObject(e.getPoint()) == true) {
+			  //canvas.objsOnCanvas.remove(obj);
+			  if (obj.getHighlighted() ==  true) {
+				  obj.clearHighlighted();
+			  } else {
+				  obj.setHighlighted();
+			  }
+				 			  
+			  canvas.repaint();
+			  canvas.clearCanvas();
+			  canvas.repaint();
+			  canvas.redrawObjs();			  
 			  break;
 		  }
 	  }
-	  canvas.clearCanvas();
-	  canvas.redrawObjs();
  }
 
  public void mouseDragged(MouseEvent e)  {
+
+	 
  }
 
  public void mouseReleased(MouseEvent e) { 
