@@ -18,7 +18,7 @@ import java.util.EventListener;
   protected Color penColor = Color.black;
   protected Tool currentTool;
   
-  protected ArrayList<TwoEndShapeObj> objsOnCanvas = new ArrayList<TwoEndShapeObj>();
+  protected Vector<TwoEndShapeObj> objsOnCanvas = new Vector<TwoEndShapeObj>();
   
     
   /* constructor */
@@ -49,11 +49,13 @@ import java.util.EventListener;
   }
    
   public void update(Graphics g){
-     paint(g);
+	  System.out.println("Update");
+	  paint(g);
   }
 
   public void paint(Graphics g) {
-     g.drawImage(imageBuffer, 0, 0, this);
+	  //System.out.println("(Re)Paint");
+	  g.drawImage(imageBuffer, 0, 0, this);
   }
   
  
@@ -86,12 +88,14 @@ import java.util.EventListener;
   }
 
   public void clearObjs() {
+	  System.out.println("Clear Objs");
 	  objsOnCanvas.clear();
 	  this.redrawObjs(); 	  
   }
   
   
   public void clearCanvas() {
+   System.out.println("Clear Canvas");
    imageBufferGraphics.setColor(Color.white);
    imageBufferGraphics.fillRect(0, 0, canvasWidth, canvasHeight);
    imageBufferGraphics.setColor(penColor);
