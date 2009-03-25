@@ -82,21 +82,21 @@ public class ObjectDraw1 extends JApplet  {
   		getImageIcon("line.jpg"),
   		"Line drawing tool",
   		canvas,
-  		new TwoEndShapeTool(canvas, new LineShapeObj())));
+  		new TwoEndShapeTool(canvas, new LineShapeObj(), "Line")));
   
     actions.add(
   		new ToolController("Rectangle",
   		getImageIcon("rectangle.jpg"),
   		"Rectangle drawing tool",
   		canvas,
-  		new TwoEndShapeTool(canvas, new RectangleShapeObj())));
+  		new TwoEndShapeTool(canvas, new RectangleShapeObj(), "Rectangle")));
   		
     actions.add(
   	        new ToolController("Oval",
   	        getImageIcon("oval.jpg"),
   		"Oval drawing tool",
   		canvas,
-  		new TwoEndShapeTool(canvas, new OvalShapeObj())));
+  		new TwoEndShapeTool(canvas, new OvalShapeObj(), "Oval")));
 
     actions.add(
   		new ToolController("Text",

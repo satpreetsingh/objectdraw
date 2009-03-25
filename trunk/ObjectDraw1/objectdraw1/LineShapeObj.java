@@ -78,7 +78,7 @@ public class LineShapeObj implements TwoEndShapeObj{
   }
 
   public void move(int delX, int delY) {
-	  this.startp.x += 20;	  
+	  //this.startp.x += 20;	  
   }
 
 
