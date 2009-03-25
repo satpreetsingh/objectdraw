@@ -1,4 +1,4 @@
-package objectdraw1;
+package objectdraw2;
 import java.awt.*;
 import java.awt.event.*;
 
