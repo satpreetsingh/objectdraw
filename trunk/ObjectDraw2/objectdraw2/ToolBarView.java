@@ -1,19 +1,18 @@
-package objectdraw1;
+package objectdraw2;
 
 
 import java.awt.*;
 import java.util.*;
 import javax.swing.*;
-
-public class MenuBarView extends JMenuBar {
   
-  MenuBarView(ToolList actions) {
-    JMenu toolMenu = new JMenu("Tool");
+  public class ToolBarView extends JToolBar {
+  
+    ToolBarView(ToolList actions) {
+    super(VERTICAL);
     ToolListIterator iter = actions.iterator();
     while(iter.hasNext()) {
       Action a = (Action) iter.next();
-      toolMenu.add(a);
+      this.add(a);
     }
-    add(toolMenu);
-  }
+  } 				  
 } 

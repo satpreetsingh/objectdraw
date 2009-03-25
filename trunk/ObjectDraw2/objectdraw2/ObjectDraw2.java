@@ -1,4 +1,4 @@
-package objectdraw1;
+package objectdraw2;
 
 
 import java.awt.*;
@@ -7,7 +7,7 @@ import java.util.EventListener;
 import javax.swing.*;
 import java.net.*;
 
-public class ObjectDraw1 extends JApplet  {
+public class ObjectDraw2 extends JApplet  {
 
   protected DrawingCanvas canvas;
   protected ControlPanelView controlPanel;
@@ -20,14 +20,14 @@ public class ObjectDraw1 extends JApplet  {
   
   /* Constructors  */
 
-  public ObjectDraw1(boolean isApplet) { 
+  public ObjectDraw2(boolean isApplet) { 
     this.isApplet = isApplet;
     if (!isApplet) {
       init();
     }
   }
 
-  public ObjectDraw1() {
+  public ObjectDraw2() {
     /* invoked as Applet */
     this(true);
   }
@@ -147,7 +147,7 @@ public class ObjectDraw1 extends JApplet  {
     JFrame frame = new JFrame();
     frame.setTitle("ObjectDraw -- First Iteration");
     frame.getContentPane().setLayout(new BorderLayout());
-    frame.getContentPane().add(new ObjectDraw1(false),
+    frame.getContentPane().add(new ObjectDraw2(false),
 			      BorderLayout.CENTER);
     frame.addWindowListener(new AppCloser());
     frame.pack();
