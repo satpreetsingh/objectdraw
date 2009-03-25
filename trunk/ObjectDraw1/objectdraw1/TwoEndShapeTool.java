@@ -13,7 +13,7 @@ public class TwoEndShapeTool implements Tool {
 //  protected TwoEndShape shape;
   
   protected TwoEndShapeObj shapeObj;
-  protected LineShapeObj line = new LineShapeObj(); 
+  //protected LineShapeObj line = new LineShapeObj(); 
   
 //  public TwoEndShapeTool(DrawingCanvas c, TwoEndShape s) {
 //   canvas = c;

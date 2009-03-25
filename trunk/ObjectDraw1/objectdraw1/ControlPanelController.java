@@ -14,6 +14,7 @@ public class ControlPanelController
 
   public void actionPerformed(ActionEvent e) {
     canvas.clearCanvas();
+    canvas.clearObjs();
   }
 
   public void itemStateChanged(ItemEvent e)  {

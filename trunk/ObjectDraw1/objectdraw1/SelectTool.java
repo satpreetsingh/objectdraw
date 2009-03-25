@@ -17,17 +17,17 @@ public class SelectTool implements Tool {
 	 // Highlight OR Un-highlight on button-press
 	 for (TwoEndShapeObj obj : canvas.objsOnCanvas) {			  
 		  if (obj.isPointInObject(e.getPoint()) == true) {
-			  //canvas.objsOnCanvas.remove(obj);
+//			  canvas.objsOnCanvas.remove(obj);
 			  if (obj.getHighlighted() ==  true) {
 				  obj.clearHighlighted();
 			  } else {
 				  obj.setHighlighted();
 			  }
 				 			  
-			  canvas.repaint();
+//			  canvas.repaint();
 			  canvas.clearCanvas();
-			  canvas.repaint();
 			  canvas.redrawObjs();			  
+//			  canvas.repaint();
 			  break;
 		  }
 	  }

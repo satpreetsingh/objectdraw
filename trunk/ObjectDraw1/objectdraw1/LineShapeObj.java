@@ -8,22 +8,22 @@ public class LineShapeObj implements TwoEndShapeObj{
    private Point startp = new Point();
    private Point endp = new Point();
    private Color objColor;
-   private boolean isHighlighted = false;
+   private boolean isHighlighted;
+   
+
+//   public LineShapeObj() {
+//	   this.isHighlighted = false;
+//   }
    
    public void setColor(Color objColor) {
 		  this.objColor = objColor;	
 	  }
     
-  public void setEndPoints(Point startp,Point endp) {
+  public void setEndPoints(Point startp, Point endp) {
       this.startp=startp;
       this.endp=endp;
   }
   
-//  public void draw(Graphics g, int x0, int y0,
-//			      int x1, int y1) {
-//    g.drawLine(x0, y0, x1, y1);
-//  }
-
   public void drawObj(Graphics g) {
 	    g.setColor(this.objColor);
 	  	g.drawLine(startp.x, startp.y, endp.x, endp.y);

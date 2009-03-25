@@ -118,9 +118,7 @@ public class ObjectDraw1 extends JApplet  {
   		"Eraser drawing tool",
   		canvas,
   		new EraserTool(canvas)));
-    
-    
-  
+      
     return actions;
   }
   
@@ -145,10 +143,9 @@ public class ObjectDraw1 extends JApplet  {
 
   public static void main(String[] args) {
     JFrame frame = new JFrame();
-    frame.setTitle("ObjectDraw -- First Iteration");
+    frame.setTitle("ObjectDraw -- First Iteration++");
     frame.getContentPane().setLayout(new BorderLayout());
-    frame.getContentPane().add(new ObjectDraw1(false),
-			      BorderLayout.CENTER);
+    frame.getContentPane().add(new ObjectDraw1(false), BorderLayout.CENTER);
     frame.addWindowListener(new AppCloser());
     frame.pack();
     frame.setSize(600, 400);
