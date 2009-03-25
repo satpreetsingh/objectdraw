@@ -51,9 +51,12 @@ import java.util.EventListener;
   public void update(Graphics g){
      paint(g);
   }
+
   public void paint(Graphics g) {
-     g.drawImage(imageBuffer,0, 0, this);
+     g.drawImage(imageBuffer, 0, 0, this);
   }
+  
+ 
   
   public void drawLineSegment(Point p1, Point p2) {
    imageBufferGraphics.drawLine(p1.x,p1.y,
@@ -81,14 +84,19 @@ import java.util.EventListener;
   public Graphics getimageBufferGraphics() {
     return imageBufferGraphics;
   }
+
+  public void clearObjs() {
+	  objsOnCanvas.clear();
+	  this.redrawObjs(); 	  
+  }
+  
+  
   public void clearCanvas() {
    imageBufferGraphics.setColor(Color.white);
    imageBufferGraphics.fillRect(0, 0, canvasWidth, canvasHeight);
    imageBufferGraphics.setColor(penColor);
    repaint();
    
-   this.redrawObjs();
-   objsOnCanvas.clear();
   }
   
   public void setBounds(int x, int y, int width, int height) {
@@ -107,9 +115,8 @@ import java.util.EventListener;
   
   public void redrawObjs() {
 	  for (TwoEndShapeObj obj : objsOnCanvas) {
-		  obj.move(10, 0);
 		  obj.drawObj(imageBufferGraphics);
 	  }
-		  
+	  repaint();	  
   }
 }

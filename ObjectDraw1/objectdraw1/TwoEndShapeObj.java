@@ -22,5 +22,8 @@ public interface TwoEndShapeObj {
   void clearHighlighted();
   boolean getHighlighted();
   
+  //void resize();
+  
+  //int isPointInObjectCorner(Point p);
   
 }
