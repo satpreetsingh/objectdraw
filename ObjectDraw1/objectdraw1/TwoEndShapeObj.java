@@ -18,9 +18,12 @@ public interface TwoEndShapeObj {
 
   boolean isPointInObject(Point p);
 
-  void setHighlighted();
-  void clearHighlighted();
-  boolean getHighlighted();
+  void drawObjBoundingBox(Graphics g);
+
+//  @deprecated 
+//  void setHighlighted();
+//  void clearHighlighted();
+//  boolean getHighlighted();
   
   //void resize();
   
