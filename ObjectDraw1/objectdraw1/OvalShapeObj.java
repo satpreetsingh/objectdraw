@@ -9,6 +9,11 @@ public class OvalShapeObj implements TwoEndShapeObj {
    private Point endp = new Point();
    private Color objColor;
    private boolean isHighlighted = false;
+
+   public OvalShapeObj() {
+	   System.out.println("Constructor of OvalShapeObj");	   
+	   this.isHighlighted = false;
+   }
    
    public void setColor(Color objColor) {
 		  this.objColor = objColor;	

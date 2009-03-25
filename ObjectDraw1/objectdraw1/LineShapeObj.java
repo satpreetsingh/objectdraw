@@ -11,9 +11,10 @@ public class LineShapeObj implements TwoEndShapeObj{
    private boolean isHighlighted;
    
 
-//   public LineShapeObj() {
-//	   this.isHighlighted = false;
-//   }
+   public LineShapeObj() {
+	   System.out.println("Constructor of LineShapeObj");	   
+	   this.isHighlighted = false;
+   }
    
    public void setColor(Color objColor) {
 		  this.objColor = objColor;	
@@ -25,6 +26,7 @@ public class LineShapeObj implements TwoEndShapeObj{
   }
   
   public void drawObj(Graphics g) {
+		System.out.println("drawObj in LineShapeObj");
 	    g.setColor(this.objColor);
 	  	g.drawLine(startp.x, startp.y, endp.x, endp.y);
 	  	
@@ -85,10 +87,12 @@ public class LineShapeObj implements TwoEndShapeObj{
 	}
 
 	public void setHighlighted() {
+		System.out.println("setHighlighted in LineShapeObj");
 		this.isHighlighted = true;
 	}
 
 	public void clearHighlighted() {
+		System.out.println("clearHighlighted in LineShapeObj");
 		this.isHighlighted = false;
 	}
 	

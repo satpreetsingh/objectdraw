@@ -1,6 +1,5 @@
 package objectdraw1;
 
-
 import java.awt.*;
 import java.util.*;
 import javax.swing.*;

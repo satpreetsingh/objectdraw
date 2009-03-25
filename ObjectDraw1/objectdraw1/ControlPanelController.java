@@ -13,6 +13,7 @@ public class ControlPanelController
   }
 
   public void actionPerformed(ActionEvent e) {
+	System.out.println("actionPerformed in ControlPanelController -> [Clear]");  
     canvas.clearCanvas();
     canvas.clearObjs();
   }
