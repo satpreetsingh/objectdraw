@@ -8,6 +8,7 @@ public class RectangleShapeObj implements TwoEndShapeObj {
 	   private Point startp = new Point();
 	   private Point endp = new Point();
 	   private Color objColor;
+	   private boolean isHighlighted = false;
 	   
 	   public void setColor(Color objColor) {
 			  this.objColor = objColor;	
@@ -48,6 +49,12 @@ public class RectangleShapeObj implements TwoEndShapeObj {
 
     g.setColor(this.objColor);
     g.drawRect(shapeX, shapeY, shapeWidth, shapeHeight);
+    
+  	if (this.isHighlighted == true) {
+	    g.setColor(Color.GRAY);
+	    g.drawRect(shapeX - 2, shapeY - 2, shapeWidth + 4, shapeHeight + 4);
+  	}
+
   }
   
   public void drawOutline(Graphics g, int x0, int y0,
@@ -84,12 +91,21 @@ public class RectangleShapeObj implements TwoEndShapeObj {
   public void move(int delX, int delY) {
   }
 
-@Override
-public boolean isPointInObject(Point p) {
-	// TODO Auto-generated method stub
-	return false;
-}
+	public boolean isPointInObject(Point p) {
+		return true;
+	}
+	
+	public void setHighlighted() {
+		this.isHighlighted = true;
+	}
+	
+	public void clearHighlighted() {
+		this.isHighlighted = false;
+	}
 
+	public boolean getHighlighted() {
+		return this.isHighlighted;
+	}
 
 
 }
