@@ -9,6 +9,12 @@ public class RectangleShapeObj implements TwoEndShapeObj {
 	   private Point endp = new Point();
 	   private Color objColor;
 	   private boolean isHighlighted = false;
+
+	   public RectangleShapeObj() {
+		   System.out.println("Constructor of RectangleShapeObj");	   
+		   this.isHighlighted = false;
+	   }
+
 	   
 	   public void setColor(Color objColor) {
 			  this.objColor = objColor;	
@@ -20,6 +26,8 @@ public class RectangleShapeObj implements TwoEndShapeObj {
 		 }
  
  public void drawObj(Graphics g) {
+	System.out.println("drawObj in [RectangleShapeObj] + H: " + this.getHighlighted());
+	 
 	int x0 = this.startp.x;
 	int y0 = this.startp.y;
 	int x1 = this.endp.x;
@@ -96,10 +104,12 @@ public class RectangleShapeObj implements TwoEndShapeObj {
 	}
 	
 	public void setHighlighted() {
+		System.out.println("setHighlighted in RectangleShapeObj");
 		this.isHighlighted = true;
 	}
 	
 	public void clearHighlighted() {
+		System.out.println("clearHighlighted in RectangleShapeObj");
 		this.isHighlighted = false;
 	}
 

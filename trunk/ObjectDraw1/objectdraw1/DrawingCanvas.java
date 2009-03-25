@@ -49,7 +49,7 @@ import java.util.EventListener;
   }
    
   public void update(Graphics g){
-	  System.out.println("Update");
+	  System.out.println("Update in DrawingCanvas");
 	  paint(g);
   }
 
@@ -88,14 +88,14 @@ import java.util.EventListener;
   }
 
   public void clearObjs() {
-	  System.out.println("Clear Objs");
+	  System.out.println("Clear Objs in DrawingCanvas");
 	  objsOnCanvas.clear();
 	  this.redrawObjs(); 	  
   }
   
   
   public void clearCanvas() {
-   System.out.println("Clear Canvas");
+   System.out.println("Clear Canvas in DrawingCanvas");
    imageBufferGraphics.setColor(Color.white);
    imageBufferGraphics.fillRect(0, 0, canvasWidth, canvasHeight);
    imageBufferGraphics.setColor(penColor);
@@ -119,7 +119,7 @@ import java.util.EventListener;
   
   public void redrawObjs() {
 	  for (TwoEndShapeObj obj : objsOnCanvas) {
-		  System.out.println("From redrawObjs(): " + objsOnCanvas.size());
+		  System.out.println("redrawObjs() in DrawingCanvas - Drawing Obj: " + objsOnCanvas.indexOf(obj));
 		  obj.drawObj(imageBufferGraphics);
 	  }
 	  repaint();	  
