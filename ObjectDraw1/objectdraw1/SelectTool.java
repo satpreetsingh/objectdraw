@@ -15,15 +15,9 @@ public class SelectTool implements Tool {
  public void mousePressed(MouseEvent e)  {
 
 	 // Highlight OR Un-highlight on button-press
-	 //for (TwoEndShapeObj obj : (canvas.objsOnCanvas)) {	
-	 	 int i;
-	 	 TwoEndShapeObj obj;
-	 	//if (obj.isPointInObject(e.getPoint()) == true){
-		 for (i = 0; i < canvas.objsOnCanvas.size(); i++) {
+	 for (TwoEndShapeObj obj : (canvas.objsOnCanvas)) {	
 		// TODO: reverse the order here
-			 obj = canvas.objsOnCanvas.get(i);
 			 System.out.println("From for loop: " + canvas.objsOnCanvas.size());
-			 System.out.println(i);
 			  if (obj.isPointInObject(e.getPoint()) == true) {
 	//			  canvas.objsOnCanvas.remove(obj);
 				  if (obj.getHighlighted() ==  true) {

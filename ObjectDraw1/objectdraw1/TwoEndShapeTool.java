@@ -10,6 +10,7 @@ public class TwoEndShapeTool implements Tool {
   protected Point startingMousePosition;
   protected Point currentMousePosition;
   protected Color saveColor;
+  protected String twoEndShapeType;
 //  protected TwoEndShape shape;
   
   protected TwoEndShapeObj shapeObj;
@@ -20,10 +21,10 @@ public class TwoEndShapeTool implements Tool {
 //   shape = s;
 //  }
   
-  public TwoEndShapeTool(DrawingCanvas c, TwoEndShapeObj so) {
+  public TwoEndShapeTool(DrawingCanvas c, TwoEndShapeObj so, String twoEndShapeType) {
 	   canvas = c;
 	   shapeObj = so;
-	   canvas.objsOnCanvas.add(so);
+	   this.twoEndShapeType = twoEndShapeType;
   }
   
   public void mousePressed(MouseEvent e)  {
@@ -83,18 +84,24 @@ public class TwoEndShapeTool implements Tool {
     iBGraphics.setPaintMode();
 //    iBGraphics.setColor(saveColor);
 
-    /* Draw final"permanent" figure */
-
-//	    shape.draw(iBGraphics,
-//               startingMousePosition.x +10 , 
-//	       startingMousePosition.y,
-//               e.getPoint().x +10, 
-//	       e.getPoint().y);
+    TwoEndShapeObj newTwoEndShapeObj = null;
     
-    shapeObj.setColor(saveColor);
-    shapeObj.setEndPoints(startingMousePosition, e.getPoint());
-    shapeObj.drawObj(iBGraphics);
-    //iBGraphics.drawLine(startingMousePosition.x + 10, startingMousePosition.y, e.getPoint().x + 10, e.getPoint().y);
+    if ("Line".equals(twoEndShapeType)) 
+    	{ newTwoEndShapeObj = new LineShapeObj(); }
+    else if ("Rectangle".equals(twoEndShapeType)) 
+    	{ newTwoEndShapeObj = new RectangleShapeObj(); }
+    else if ("Oval".equals(twoEndShapeType))
+    	{ newTwoEndShapeObj = new OvalShapeObj(); }
+    		
+    //TwoEndShapeObj newTwoEndShapeObj = new LineShapeObj();
+    System.out.println("---> " + twoEndShapeType);
+    ///newTwoEndShapeObj = shapeObj;
+    
+    newTwoEndShapeObj.setColor(saveColor);
+    newTwoEndShapeObj.setEndPoints(startingMousePosition, e.getPoint());
+    newTwoEndShapeObj.drawObj(iBGraphics);
+
+    canvas.objsOnCanvas.add(newTwoEndShapeObj);
     
     canvas.repaint();   
 
