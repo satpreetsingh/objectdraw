@@ -7,23 +7,30 @@ public class EraserTool implements Tool {
   protected DrawingCanvas canvas;
   protected Point startingMousePosition;
   protected Color saveColor;
-
-  public EraserTool(DrawingCanvas c) {
-   canvas = c;
-  }
   
-//  protected void drawErasure(int x, int y, int width, int height) {
-//    Graphics iBGraphics = canvas.getimageBufferGraphics();
-//    iBGraphics.fillRect(x, y, width, height);
-//    canvas.repaint(x, y, width, height);
-//  }
+  public EraserTool(DrawingCanvas c) {
+   System.out.println("Constructor of EraserTool");  
+   canvas = c;
+  }  
 
+ public String toString() {
+	 return "EraserTool";
+ }
+  
  public void mousePressed(MouseEvent e)  {
 
+	 if (canvas.isAnObjectHighlighted == true) {
+		  System.out.println("Deleting highlighted object");
+		  canvas.objsOnCanvas.remove(canvas.highlightedObj); 
+		  canvas.highlightedObj = null; 
+		  canvas.isAnObjectHighlighted = false;
+		  canvas.clearCanvas();
+		  canvas.redrawObjs();
+	 }
+	 
 	 for (TwoEndShapeObj obj : canvas.objsOnCanvas) {			  
 		  if (obj.isPointInObject(e.getPoint()) == true) {
-			  canvas.objsOnCanvas.remove(obj);
-				 			  
+			  canvas.objsOnCanvas.remove(obj);				 			  
 			  canvas.clearCanvas();
 			  canvas.redrawObjs();			  
 			  break;

@@ -18,6 +18,10 @@ import java.util.EventListener;
   protected Color penColor = Color.black;
   protected Tool currentTool;
   
+  public boolean isAnObjectHighlighted = false; // Flag used by EraseTool, and set by SelectTool
+  protected TwoEndShapeObj highlightedObj = null; // set by SelectTool, used by EraseTool
+
+  
   protected Vector<TwoEndShapeObj> objsOnCanvas = new Vector<TwoEndShapeObj>();
   
     
@@ -91,17 +95,16 @@ import java.util.EventListener;
 	  System.out.println("Clear Objs in DrawingCanvas");
 	  objsOnCanvas.clear();
 	  this.redrawObjs(); 	  
-  }
-  
+  }  
   
   public void clearCanvas() {
    System.out.println("Clear Canvas in DrawingCanvas");
    imageBufferGraphics.setColor(Color.white);
    imageBufferGraphics.fillRect(0, 0, canvasWidth, canvasHeight);
    imageBufferGraphics.setColor(penColor);
-   repaint();
-   
+   repaint();   
   }
+  
   
   public void setBounds(int x, int y, int width, int height) {
     Image newimageBuffer = createImage(width, height);
