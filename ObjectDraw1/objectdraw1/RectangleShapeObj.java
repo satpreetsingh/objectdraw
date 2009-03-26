@@ -7,6 +7,7 @@ public class RectangleShapeObj implements TwoEndShapeObj {
 
 	   private Point startp = new Point();
 	   private Point endp = new Point();
+	  
 	   private Color objColor;
 	   private boolean isHighlighted = false;
 
@@ -100,7 +101,36 @@ public class RectangleShapeObj implements TwoEndShapeObj {
   }
 
 	public boolean isPointInObject(Point p) {
-		return true;
+			    
+	    boolean insideX = false;
+	    boolean insideY = false;
+	    
+	    if (startp.x < endp.x) {
+	    	if (p.x <= endp.x && p.x >= startp.x) {
+	    		insideX = true; 
+	    	}
+	    }
+
+	    if (startp.x > endp.x) {
+	    	if (p.x >= endp.x && p.x <= startp.x) {
+	    		insideX = true; 
+	    	}
+	    }
+
+	    if (startp.y < endp.y) {
+	    	if (p.y <= endp.y && p.y >= startp.y) {
+	    		insideY = true; 
+	    	}
+	    }
+
+	    if (startp.y > endp.y) {
+	    	if (p.y >= endp.y && p.y <= startp.y) {
+	    		insideY = true; 
+	    	}
+	    }
+
+	    return insideX && insideY;
+	    
 	}
 	
 	public void setHighlighted() {
@@ -116,6 +146,44 @@ public class RectangleShapeObj implements TwoEndShapeObj {
 	public boolean getHighlighted() {
 		return this.isHighlighted;
 	}
+	
+	
+	
+	public 	void drawObjBoundingBox(Graphics g){
+		 
+		
+		g.setColor(Color.lightGray);
+		    // Set up bounding box
+			int x0 = this.startp.x;
+			int y0 = this.startp.y;
+			int x1 = this.endp.x;
+			int y1 = this.endp.y;
+			 
+			int shapeX;
+		    int shapeY;
+		    int shapeWidth;
+		    int shapeHeight;
+		    if (x0 <= x1) {
+		      shapeX = x0;
+		      shapeWidth = (x1-x0)+1;
+		    }
+		    else {
+		      shapeX = x1;
+		      shapeWidth = (x0-x1)+1;
+		    }
+		    
+		    if (y0 <= y1) {
+		      shapeY = y0;
+		      shapeHeight = (y1-y0)+1;
+		    }
+		    else {
+		      shapeY = y1;
+		      shapeHeight = (y0-y1)+1;
+		    }
+		    
+		    g.drawRect(shapeX - 2, shapeY - 2, shapeWidth + 4, shapeHeight + 4);
+		
+		}
 
 
 }
