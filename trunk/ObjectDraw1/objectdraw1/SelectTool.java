@@ -9,7 +9,6 @@ public class SelectTool implements Tool {
   protected Color saveColor;
   
   protected TwoEndShapeObj obj = null; 
-  protected TwoEndShapeObj highlightedObj = null; 
 
   public SelectTool(DrawingCanvas c) {
    canvas = c;
@@ -19,9 +18,11 @@ public class SelectTool implements Tool {
 
 	 // Highlight OR Un-highlight on button-press
 	 int i;
+	 boolean foundAnObject = false;
 	 
 	 for (i = canvas.objsOnCanvas.size()-1 ; i >= 0 ; i-- ) {
-//	 for (TwoEndShapeObj obj : canvas.objsOnCanvas) {	
+		 // Cannot use iterator to iterate backwards
+		 //	 for (TwoEndShapeObj obj : canvas.objsOnCanvas) {	
 
 		 obj = canvas.objsOnCanvas.get(i);
 		 
@@ -30,21 +31,32 @@ public class SelectTool implements Tool {
 			 
 	 	if (obj.isPointInObject(e.getPoint()) == true) {
 //			  canvas.objsOnCanvas.remove(obj);
+	 		  foundAnObject = true;
 
 			  canvas.clearCanvas();
 			  canvas.redrawObjs();	
 			  
-			  if (highlightedObj == obj) {
-				  highlightedObj = null;
+			  if (canvas.highlightedObj == obj) {
+				  canvas.highlightedObj = null;
+				  canvas.isAnObjectHighlighted = false;
 			  }
 			  else {
 				  obj.drawObjBoundingBox(canvas.getimageBufferGraphics());
 				  //System.out.println("Break");
-				  highlightedObj = obj;
+				  canvas.highlightedObj = obj;
+				  canvas.isAnObjectHighlighted = true;
 			  }
 			  
 			  break;
 		  }
+	  }
+	 
+	 // Code for if clicked outside of all objects' boundary
+	 if (foundAnObject == false) { 
+		  canvas.highlightedObj = null; 
+		  canvas.isAnObjectHighlighted = false;
+		  canvas.clearCanvas();
+		  canvas.redrawObjs();
 	  }
  }
 

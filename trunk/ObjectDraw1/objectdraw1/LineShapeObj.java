@@ -61,29 +61,53 @@ public class LineShapeObj implements TwoEndShapeObj{
 		    }
 		    
 		    g.drawRect(shapeX - 2, shapeY - 2, shapeWidth + 4, shapeHeight + 4);
-//		    g.drawLine(startp.x + 2, startp.y, endp.x + 2, endp.y);	  		
-//		  	g.drawLine(startp.x - 2, startp.y, endp.x - 2, endp.y);	  		
 	  	}
 	  }  
 
   public void drawOutline(Graphics g, int x0, int y0,
 			      int x1, int y1) {
     g.drawLine(x0, y0, x1, y1);
-
-//    this.startp.x = x0;
-//    this.startp.y = y0;
-//    this.endp.x   = x1;
-//    this.endp.y   = y1;
-    //System.out.println(x0 + "," + y0 + " " + x1 + "," + y1 );
   }
 
   public void move(int delX, int delY) {
-	  //this.startp.x += 20;	  
+	    this.startp.x += delX;
+	    this.startp.y += delY;
+	    this.endp.x   += delX;
+	    this.endp.y   += delY;
+	    // Add routines here for redrawing canvas
+	    // Make sure that object being moved (which is also selected), shows bounding box movement
   }
 
 
 	public boolean isPointInObject(Point p) {		
-		return true;
+	    boolean insideX = false;
+	    boolean insideY = false;
+	    
+	    if (startp.x < endp.x) {
+	    	if (p.x <= endp.x && p.x >= startp.x) {
+	    		insideX = true; 
+	    	}
+	    }
+
+	    if (startp.x > endp.x) {
+	    	if (p.x >= endp.x && p.x <= startp.x) {
+	    		insideX = true; 
+	    	}
+	    }
+
+	    if (startp.y < endp.y) {
+	    	if (p.y <= endp.y && p.y >= startp.y) {
+	    		insideY = true; 
+	    	}
+	    }
+
+	    if (startp.y > endp.y) {
+	    	if (p.y >= endp.y && p.y <= startp.y) {
+	    		insideY = true; 
+	    	}
+	    }
+
+	    return insideX && insideY;
 	}
 
 	
@@ -118,8 +142,7 @@ public class LineShapeObj implements TwoEndShapeObj{
 		      shapeHeight = (y0-y1)+1;
 		    }
 		    
-		    g.drawRect(shapeX - 2, shapeY - 2, shapeWidth + 4, shapeHeight + 4);
-		
+		    g.drawRect(shapeX, shapeY, shapeWidth, shapeHeight);		
 	}
   
 }
