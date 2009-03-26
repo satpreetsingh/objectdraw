@@ -27,7 +27,7 @@ public class RectangleShapeObj implements TwoEndShapeObj {
 		 }
  
  public void drawObj(Graphics g) {
-	System.out.println("drawObj in [RectangleShapeObj] + H: " + this.getHighlighted());
+	System.out.println("drawObj in RectangleShapeObj");
 	 
 	int x0 = this.startp.x;
 	int y0 = this.startp.y;
@@ -133,25 +133,8 @@ public class RectangleShapeObj implements TwoEndShapeObj {
 	    
 	}
 	
-	public void setHighlighted() {
-		System.out.println("setHighlighted in RectangleShapeObj");
-		this.isHighlighted = true;
-	}
-	
-	public void clearHighlighted() {
-		System.out.println("clearHighlighted in RectangleShapeObj");
-		this.isHighlighted = false;
-	}
-
-	public boolean getHighlighted() {
-		return this.isHighlighted;
-	}
-	
-	
-	
-	public 	void drawObjBoundingBox(Graphics g){
-		 
-		
+	public void drawObjBoundingBox(Graphics g){
+		 		
 		g.setColor(Color.lightGray);
 		    // Set up bounding box
 			int x0 = this.startp.x;
@@ -183,7 +166,7 @@ public class RectangleShapeObj implements TwoEndShapeObj {
 		    
 		    g.drawRect(shapeX - 2, shapeY - 2, shapeWidth + 4, shapeHeight + 4);
 		
-		}
+	}
 
 
 }
