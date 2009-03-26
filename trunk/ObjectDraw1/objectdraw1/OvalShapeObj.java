@@ -3,7 +3,7 @@ package objectdraw1;
 
 import java.awt.*;
 
-public class OvalShapeObj implements TwoEndShapeObj {
+public class OvalShapeObj extends TwoEndShapeObj {
 
    private Point startp = new Point();
    private Point endp = new Point();

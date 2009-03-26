@@ -3,7 +3,7 @@ package objectdraw1;
 import java.awt.*;
 import java.util.*;
 
-public class LineShapeObj implements TwoEndShapeObj{
+public class LineShapeObj extends TwoEndShapeObj{
 
    private Point startp = new Point();
    private Point endp = new Point();

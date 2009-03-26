@@ -17,7 +17,7 @@ public class ObjectDraw1 extends JApplet  {
   protected boolean isApplet = false;
 
   
-  
+   
   /* Constructors  */
 
   public ObjectDraw1(boolean isApplet) { 
