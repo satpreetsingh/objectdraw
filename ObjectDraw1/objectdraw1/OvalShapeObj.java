@@ -113,4 +113,39 @@ public class OvalShapeObj implements TwoEndShapeObj {
 		return this.isHighlighted;
 	}
 
+	public void drawObjBoundingBox(Graphics g){
+ 		
+		g.setColor(Color.lightGray);
+		    // Set up bounding box
+			int x0 = this.startp.x;
+			int y0 = this.startp.y;
+			int x1 = this.endp.x;
+			int y1 = this.endp.y;
+			 
+			int shapeX;
+		    int shapeY;
+		    int shapeWidth;
+		    int shapeHeight;
+		    if (x0 <= x1) {
+		      shapeX = x0;
+		      shapeWidth = (x1-x0)+1;
+		    }
+		    else {
+		      shapeX = x1;
+		      shapeWidth = (x0-x1)+1;
+		    }
+		    
+		    if (y0 <= y1) {
+		      shapeY = y0;
+		      shapeHeight = (y1-y0)+1;
+		    }
+		    else {
+		      shapeY = y1;
+		      shapeHeight = (y0-y1)+1;
+		    }
+		    
+		    g.drawRect(shapeX - 2, shapeY - 2, shapeWidth + 4, shapeHeight + 4);
+		
+	}
+	
 }
