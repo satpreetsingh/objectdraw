@@ -28,7 +28,7 @@ public class TwoEndShapeTool implements Tool {
 	public void mousePressed(MouseEvent e)  {
 		/* Establish starting point for next drawing */
 		startingMousePosition = e.getPoint();
-		currentMousePosition = startingMousePosition;
+		currentMousePosition = (Point)startingMousePosition.clone();
 		Graphics iBGraphics = canvas.getimageBufferGraphics();
 		saveColor = iBGraphics.getColor( );
 		iBGraphics.setXORMode(Color.lightGray);
@@ -68,7 +68,7 @@ public class TwoEndShapeTool implements Tool {
 				newMousePosition.y);
 
 		/* update current mouse coordinates */
-		currentMousePosition = newMousePosition;
+		currentMousePosition = (Point)newMousePosition.clone();
 
 		//   iBGraphics.setColor(Color.black);
 		//	 
