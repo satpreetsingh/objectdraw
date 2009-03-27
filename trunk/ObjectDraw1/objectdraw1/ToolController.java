@@ -30,7 +30,6 @@ public class ToolController extends AbstractAction {
 		  System.out.println("Deleting highlighted object");
 		  canvas.objsOnCanvas.remove(canvas.highlightedObj); 
 		  canvas.highlightedObj = null; 
-		  canvas.isAnObjectHighlighted = false;
 		  canvas.clearCanvas();
 		  canvas.redrawObjs();
     }

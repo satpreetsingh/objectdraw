@@ -18,11 +18,11 @@ import java.util.EventListener;
   protected Color penColor = Color.black;
   protected Tool currentTool;
   
-  public boolean isAnObjectHighlighted = false; // Flag used by EraseTool, and set by SelectTool
-  protected TwoEndShapeObj highlightedObj = null; // set by SelectTool, used by EraseTool
+//  public boolean isAnObjectHighlighted = false; // Flag used by EraseTool, and set by SelectTool
+  protected ShapeObj highlightedObj = null; // set by SelectTool, used by EraseTool
 
   
-  protected Vector<TwoEndShapeObj> objsOnCanvas = new Vector<TwoEndShapeObj>();
+  protected Vector<ShapeObj> objsOnCanvas = new Vector<ShapeObj>();
   
     
   /* constructor */
@@ -121,7 +121,7 @@ import java.util.EventListener;
   }
   
   public void redrawObjs() {
-	  for (TwoEndShapeObj obj : objsOnCanvas) {
+	  for (ShapeObj obj : objsOnCanvas) {
 		  System.out.println("redrawObjs() in DrawingCanvas - Drawing Obj: " + objsOnCanvas.indexOf(obj));
 		  obj.drawObj(imageBufferGraphics);
 	  }

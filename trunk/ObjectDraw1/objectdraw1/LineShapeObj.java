@@ -20,8 +20,11 @@ public class LineShapeObj extends TwoEndShapeObj{
 		this.objColor = objColor;	
 	}
 
-	public void setEndPoints(Point startp, Point endp) {
+	public void setStartPoint(Point startp) {
 		this.startp=startp;
+	}
+
+	public void setEndPoint(Point endp) {
 		this.endp=endp;
 	}
 
