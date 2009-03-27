@@ -10,7 +10,7 @@ public class SelectTool implements Tool {
 	protected Point oldStartingMousePosition;
 	protected Color saveColor;
 
-	protected TwoEndShapeObj shapeObj = null; 
+	protected ShapeObj shapeObj = null; 
 
 	public SelectTool(DrawingCanvas c) {
 		canvas = c;
@@ -41,7 +41,6 @@ public class SelectTool implements Tool {
 				if (canvas.highlightedObj == shapeObj) {
 					System.out.println("Un-Highlighting! " + shapeObj.toString());					
 					canvas.highlightedObj = null;
-					canvas.isAnObjectHighlighted = false; // TODO: Is a redundant variable -- replace with just canvas.highlightedObj
 				}
 				else {
 					// This draws a highlight/bounding-box around object (if found) immediately on mousePress
@@ -51,7 +50,6 @@ public class SelectTool implements Tool {
 					shapeObj.drawObjBoundingBox(iBGraphics);
 					iBGraphics.setXORMode(Color.lightGray);					
 					canvas.highlightedObj = shapeObj;
-					canvas.isAnObjectHighlighted = true;
 				}
 				break;
 			}
@@ -60,9 +58,6 @@ public class SelectTool implements Tool {
 		// Code for if clicked outside of all objects' boundary
 		if (foundAnObject == false) { 
 			canvas.highlightedObj = null; 
-			canvas.isAnObjectHighlighted = false;
-//			canvas.clearCanvas();
-//			canvas.redrawObjs();
 		}
 		
 		canvas.repaint(); // Puts buffer to screen
@@ -130,8 +125,6 @@ public class SelectTool implements Tool {
 			int dX = currentMousePosition.x - startingMousePosition.x;
 			int dY = currentMousePosition.y - startingMousePosition.y;
 			System.out.println("Moving by ("+dX+", "+dY+")");
-//			System.out.println("End   Point: " + currentMousePosition.toString());
-//			System.out.println("Start Point: " + startingMousePosition.toString());			
 			shapeObj.move(dX, dY);		
 //			System.out.println("(mouseReleased) Drawing bounding box on: " + shapeObj.toString());
 //			shapeObj.drawObjBoundingBox(iBGraphics);

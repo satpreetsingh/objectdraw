@@ -116,7 +116,8 @@ public class TwoEndShapeTool implements Tool {
 		///newTwoEndShapeObj = shapeObj;
 
 		newTwoEndShapeObj.setColor(saveColor);
-		newTwoEndShapeObj.setEndPoints(startingMousePosition, e.getPoint());
+		newTwoEndShapeObj.setStartPoint(startingMousePosition);
+		newTwoEndShapeObj.setEndPoint(e.getPoint());
 		newTwoEndShapeObj.drawObj(iBGraphics);
 
 		canvas.objsOnCanvas.add(newTwoEndShapeObj);
