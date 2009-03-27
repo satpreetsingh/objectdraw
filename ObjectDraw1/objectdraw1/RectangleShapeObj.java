@@ -94,10 +94,8 @@ public class RectangleShapeObj extends TwoEndShapeObj {
 	}
 
 	public void move(int delX, int delY) {
-		this.startp.x += delX;
-		this.startp.y += delY;
-		this.endp.x   += delX;
-		this.endp.y   += delY;
+		this.startp.x += delX; 		this.startp.y += delY;
+		this.endp.x   += delX;		this.endp.y   += delY;
 		// Add routines here for redrawing canvas
 		// Make sure that object being moved (which is also selected), shows bounding box movement
 
