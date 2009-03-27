@@ -1,4 +1,4 @@
-package objectdraw1;
+package rasterGraphics;
 
 
 import java.awt.*;
