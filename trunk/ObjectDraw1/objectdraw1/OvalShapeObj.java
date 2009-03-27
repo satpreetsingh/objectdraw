@@ -87,10 +87,10 @@ public class OvalShapeObj extends TwoEndShapeObj {
 
     g.drawOval(shapeX, shapeY, shapeWidth, shapeHeight);
 
-    this.startp.x = x0;
-    this.startp.y = y0;
-    this.endp.x   = x1;
-    this.endp.y   = y1;
+//    this.startp.x = x0;
+//    this.startp.y = y0;
+//    this.endp.x   = x1;
+//    this.endp.y   = y1;
     
   }
   
