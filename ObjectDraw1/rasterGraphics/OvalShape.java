@@ -1,9 +1,10 @@
-package objectdraw1;
+package rasterGraphics;
 
 
 import java.awt.*;
 
-public class RectangleShape implements TwoEndShape {
+
+public class OvalShape implements TwoEndShape {
 
  public void draw(Graphics g, int x0, int y0, int x1, int y1) {
     int shapeX;
@@ -27,7 +28,7 @@ public class RectangleShape implements TwoEndShape {
       shapeY = y1;
       shapeHeight = (y0-y1)+1;
     }
-    g.drawRect(shapeX, shapeY, shapeWidth, shapeHeight);
+    g.drawOval(shapeX, shapeY, shapeWidth, shapeHeight);
   }
   
   public void drawOutline(Graphics g, int x0, int y0,
@@ -52,7 +53,7 @@ public class RectangleShape implements TwoEndShape {
       shapeY = y1;
       shapeHeight = (y0-y1)+1;
     }
-    g.drawRect(shapeX, shapeY, shapeWidth, shapeHeight);
+    g.drawOval(shapeX, shapeY, shapeWidth, shapeHeight);
   }
 
 }
