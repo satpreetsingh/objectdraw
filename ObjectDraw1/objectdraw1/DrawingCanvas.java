@@ -122,7 +122,7 @@ import java.util.EventListener;
   
   public void redrawObjs() {
 	  for (ShapeObj obj : objsOnCanvas) {
-		  System.out.println("redrawObjs() in DrawingCanvas - Drawing Obj: " + objsOnCanvas.indexOf(obj));
+		  System.out.println("redrawObjs() in DrawingCanvas - Drawing Obj: "+ obj +" - " + objsOnCanvas.indexOf(obj));
 		  obj.drawObj(imageBufferGraphics);
 	  }
 	  repaint();	  

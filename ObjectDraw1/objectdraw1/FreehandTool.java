@@ -12,6 +12,7 @@ public class FreehandTool implements Tool {
 
 	public FreehandTool(DrawingCanvas c) {
 		canvas = c;
+		System.out.println("Constructor of FreehandTool");	   
 	}
 
 	protected void drawLineSegment(Point p1, Point p2) {
