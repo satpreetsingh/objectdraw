@@ -14,6 +14,7 @@ public class SelectTool implements Tool {
 
 	public SelectTool(DrawingCanvas c) {
 		canvas = c;
+		System.out.println("Constructor of SelectTool");	   
 	}
 
 	public void mousePressed(MouseEvent e)  {
@@ -27,7 +28,6 @@ public class SelectTool implements Tool {
 		
 		iBGraphics.setXORMode(Color.lightGray);
 		iBGraphics.setColor(Color.white);
-
 		
 		// Set/Clear Canvas highlightedObj on button-press
 		int i;

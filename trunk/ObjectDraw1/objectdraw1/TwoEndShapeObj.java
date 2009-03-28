@@ -5,14 +5,21 @@ import java.awt.*;
 
 public abstract class TwoEndShapeObj extends ShapeObj {
 
-	private Point startp = new Point();
-	private Point endp = new Point(); 
+	private Point startp;
+	private Point endp; 
 	private Color objColor;
-	private boolean isHighlighted = false; // deprecated -- remove dependencies
 
-	abstract void setColor(Color objColor);	
-	abstract void setStartPoint(Point startp);		
-	abstract void setEndPoint(Point endp);		
+	public void setColor(Color objColor) {
+		this.objColor = objColor;	
+	}
+
+	public void setStartPoint(Point startp) {
+		this.startp=startp;
+	}
+
+	public void setEndPoint(Point endp) {
+		this.endp=endp;
+	}
 
 	abstract void drawObj(Graphics g);
 	abstract void drawOutline(Graphics g, int x0, int y0, int x1, int y1);
