@@ -8,11 +8,10 @@ public class OvalShapeObj extends TwoEndShapeObj {
 	private Point startp = new Point();
 	private Point endp = new Point();
 	private Color objColor;
-	private boolean isHighlighted = false;
+	private boolean isFilled = false;
 
 	public OvalShapeObj() {
 		System.out.println("Constructor of OvalShapeObj");	   
-		this.isHighlighted = false;
 	}
 
 	public void setColor(Color objColor) {
@@ -58,9 +57,9 @@ public class OvalShapeObj extends TwoEndShapeObj {
 		g.setColor(this.objColor);
 		g.drawOval(shapeX, shapeY, shapeWidth, shapeHeight);
 
-		if (this.isHighlighted == true) {
-			g.setColor(Color.GRAY);
-			g.drawRect(shapeX - 2, shapeY - 2, shapeWidth + 4, shapeHeight + 4);
+		if (this.isFilled == true) {
+			g.setColor(this.objColor);
+			g.fillOval(shapeX, shapeY, shapeWidth, shapeHeight);
 		}
 
 	}
@@ -89,11 +88,6 @@ public class OvalShapeObj extends TwoEndShapeObj {
 		}
 
 		g.drawOval(shapeX, shapeY, shapeWidth, shapeHeight);
-
-//		this.startp.x = x0;
-//this.startp.y = y0;
-//this.endp.x   = x1;
-//this.endp.y   = y1;
 
 	}
 
@@ -302,6 +296,10 @@ public class OvalShapeObj extends TwoEndShapeObj {
 		endp.x = shapeX + shapeWidth;
 		endp.y = shapeY + shapeHeight;
 					
+	}
+
+	void toggleFill() {
+		this.isFilled = !(this.isFilled);
 	}
 
 }

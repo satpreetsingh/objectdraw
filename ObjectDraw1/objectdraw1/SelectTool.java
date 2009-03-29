@@ -76,39 +76,39 @@ public class SelectTool implements Tool {
 
 
 	public void mouseDragged(MouseEvent e)  { 
-		System.out.println("**mouseDragged**");
+//		System.out.println("**mouseDragged**");
 		Point newMousePosition = e.getPoint();
-		Graphics iBGraphics = canvas.getimageBufferGraphics();
-
-		iBGraphics.setXORMode(Color.lightGray);
-		iBGraphics.setColor(Color.black); 
-		// So paint in white and alternate with light-gray
-		
-		/* erase previous temporary figure by redrawing it */
-		shapeObj.drawOutline(iBGraphics,
-				oldStartingMousePosition.x,
-				oldStartingMousePosition.y,
-				currentMousePosition.x, 
-				currentMousePosition.y);
-		
+//		Graphics iBGraphics = canvas.getimageBufferGraphics();
+//
+//		iBGraphics.setXORMode(Color.lightGray);
+//		iBGraphics.setColor(Color.black); 
+//		// So paint in white and alternate with light-gray
+//		
+//		/* erase previous temporary figure by redrawing it */
+//		shapeObj.drawOutline(iBGraphics,
+//				oldStartingMousePosition.x,
+//				oldStartingMousePosition.y,
+//				currentMousePosition.x, 
+//				currentMousePosition.y);
+//		
 		int dX = newMousePosition.x - currentMousePosition.x;
 		int dY = newMousePosition.y - currentMousePosition.y;
-		System.out.println("Dragged by ("+dX+", "+dY+")");
-		
+//		System.out.println("Dragged by ("+dX+", "+dY+")");
+//		
 		oldStartingMousePosition.x += dX;
 		oldStartingMousePosition.y += dY;
-				
-		/* draw new temporary figure */
-		shapeObj.drawOutline(iBGraphics,
-				oldStartingMousePosition.x,
-				oldStartingMousePosition.y,
-				newMousePosition.x,
-				newMousePosition.y);
-
+//				
+//		/* draw new temporary figure */
+//		shapeObj.drawOutline(iBGraphics,
+//				oldStartingMousePosition.x,
+//				oldStartingMousePosition.y,
+//				newMousePosition.x,
+//				newMousePosition.y);
+//
 		/* update current mouse coordinates */
 		currentMousePosition = (Point)newMousePosition.clone();
-
-		canvas.repaint(); // Puts buffer to screen
+//
+//		canvas.repaint(); // Puts buffer to screen
 	}
 
 	public void mouseReleased(MouseEvent e) {

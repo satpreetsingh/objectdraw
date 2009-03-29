@@ -119,6 +119,13 @@ public class ObjectDraw1 extends JApplet  {
 						canvas,
 						new EraserTool(canvas)));
 
+		actions.add(
+				new ToolController("Fill",
+						getImageIcon("fill.jpg"),
+						"Fill Toggle tool",
+						canvas,
+						new FillTool(canvas)));
+
 		return actions;
 	}
 
@@ -148,7 +155,7 @@ public class ObjectDraw1 extends JApplet  {
 		frame.getContentPane().add(new ObjectDraw1(false), BorderLayout.CENTER);
 		frame.addWindowListener(new AppCloser());
 		frame.pack();
-		frame.setSize(750, 535);
+		frame.setSize(750, 600);
 		frame.setVisible(true);
 	}
 

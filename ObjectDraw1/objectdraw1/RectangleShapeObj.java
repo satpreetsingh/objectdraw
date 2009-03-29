@@ -7,8 +7,8 @@ public class RectangleShapeObj extends TwoEndShapeObj {
 	private Point startp = new Point();
 	private Point endp = new Point();
 	private Color objColor;
-	private boolean isHighlighted = false;
-
+	private boolean isFilled = false;
+	
 	public RectangleShapeObj() {
 		System.out.println("Constructor of RectangleShapeObj");	   
 	}
@@ -59,9 +59,9 @@ public class RectangleShapeObj extends TwoEndShapeObj {
 		g.setColor(this.objColor);
 		g.drawRect(shapeX, shapeY, shapeWidth, shapeHeight);
 
-		if (this.isHighlighted == true) {
-			g.setColor(Color.GRAY);
-			g.drawRect(shapeX - 2, shapeY - 2, shapeWidth + 4, shapeHeight + 4);
+		if (this.isFilled == true) {
+			g.setColor(this.objColor);
+			g.fillRect(shapeX, shapeY, shapeWidth, shapeHeight);
 		}
 
 	}
@@ -300,6 +300,10 @@ public class RectangleShapeObj extends TwoEndShapeObj {
 		endp.x = shapeX + shapeWidth;
 		endp.y = shapeY + shapeHeight;
 					
+	}
+
+	void toggleFill() {
+		this.isFilled = !(this.isFilled);
 	}
 	
 	
