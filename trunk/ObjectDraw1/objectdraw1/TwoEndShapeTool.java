@@ -70,20 +70,6 @@ public class TwoEndShapeTool implements Tool {
 		/* update current mouse coordinates */
 		currentMousePosition = (Point)newMousePosition.clone();
 
-		//   iBGraphics.setColor(Color.black);
-		//	 
-		//	iBGraphics.clearRect(startingMousePosition.x+dx,
-		//			startingMousePosition.y+dy,
-		//			currentMousePosition.x+dx, currentMousePosition.y+dy);
-		//	 dx=e.getPoint().x-preX;dy=e.getPoint().y-preY;
-
-
-		//	   shapeObj.move(iBGraphics, 0, 0+dy, 0+dx, 0+dy);
-
-		//	   preX=currentMousePosition.x;preY=currentMousePosition.y;
-
-
-
 		canvas.repaint(); // Puts buffer to screen
 	}
 
@@ -121,7 +107,8 @@ public class TwoEndShapeTool implements Tool {
 		newTwoEndShapeObj.drawObj(iBGraphics);
 
 		canvas.objsOnCanvas.add(newTwoEndShapeObj);
-
+		canvas.highlightedObj = null;
+		
 		canvas.repaint();   // Puts buffer to screen
 
 	}

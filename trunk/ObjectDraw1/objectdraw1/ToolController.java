@@ -32,7 +32,18 @@ public class ToolController extends AbstractAction {
 		  canvas.highlightedObj = null; 
 		  canvas.clearCanvas();
 		  canvas.redrawObjs();
-    }
+  }
+
+    if ("FillTool".equals(canvas.getcurrentTool().toString())) {
+		  System.out.println("Toggling object fill");
+			System.out.println("Toggling highlighted object fill");
+			canvas.highlightedObj.toggleFill(); 
+			canvas.clearCanvas();
+			canvas.redrawObjs();
+			canvas.highlightedObj.drawObjBoundingBox(canvas.getimageBufferGraphics());
+  }
+    
+    
   }
 
 }

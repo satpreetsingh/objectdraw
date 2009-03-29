@@ -19,13 +19,13 @@ public class EraserTool implements Tool {
   
  public void mousePressed(MouseEvent e)  {
 
-	 if (canvas.highlightedObj != null) {
-		  System.out.println("Deleting highlighted object");
-		  canvas.objsOnCanvas.remove(canvas.highlightedObj); 
-		  canvas.highlightedObj = null; 
-		  canvas.clearCanvas();
-		  canvas.redrawObjs();
-	 }
+//	 if (canvas.highlightedObj != null) {
+//		  System.out.println("Deleting highlighted object");
+//		  canvas.objsOnCanvas.remove(canvas.highlightedObj); 
+//		  canvas.highlightedObj = null; 
+//		  canvas.clearCanvas();
+//		  canvas.redrawObjs();
+//	 }
 	 
 	 for (ShapeObj obj : canvas.objsOnCanvas) {			  
 		  if (obj.isPointInObject(e.getPoint()) == true) {

@@ -245,4 +245,10 @@ public class LineShapeObj extends TwoEndShapeObj{
 					
 	}
 
+	@Override
+	void toggleFill() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

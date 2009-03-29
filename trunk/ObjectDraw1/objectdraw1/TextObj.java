@@ -156,4 +156,10 @@ public class TextObj extends ShapeObj{
 		
 	}
 
+	@Override
+	void toggleFill() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

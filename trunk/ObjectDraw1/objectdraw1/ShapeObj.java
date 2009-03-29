@@ -20,4 +20,6 @@ public abstract class ShapeObj {
 
 	abstract int resizeCornerSelected(Point p);
 	abstract void resize(int corner, int delX, int delY);
+	
+	abstract void toggleFill();	
 }
