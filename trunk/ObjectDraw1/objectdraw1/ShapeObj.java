@@ -18,4 +18,6 @@ public abstract class ShapeObj {
 	abstract boolean isPointInObject(Point p);
 	abstract void drawObjBoundingBox(Graphics g);
 
+	abstract int resizeCornerSelected(Point p);
+	abstract void resize(int corner, int delX, int delY);
 }

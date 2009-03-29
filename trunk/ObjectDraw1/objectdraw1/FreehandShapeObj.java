@@ -148,4 +148,16 @@ public class FreehandShapeObj extends ShapeObj{
 		}	
 	}
 
+	@Override
+	int resizeCornerSelected(Point p) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	void resize(int corner, int delX, int delY) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

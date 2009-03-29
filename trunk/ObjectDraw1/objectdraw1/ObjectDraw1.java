@@ -143,7 +143,7 @@ public class ObjectDraw1 extends JApplet  {
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
-		frame.setTitle("ObjectDraw -- First Iteration++");
+		frame.setTitle("ObjectDraw -- Fourth Iteration");
 		frame.getContentPane().setLayout(new BorderLayout());
 		frame.getContentPane().add(new ObjectDraw1(false), BorderLayout.CENTER);
 		frame.addWindowListener(new AppCloser());
