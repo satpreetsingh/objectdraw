@@ -9,6 +9,10 @@ public class SelectTool implements Tool {
 	protected Point currentMousePosition;
 	protected Point oldStartingMousePosition;
 	protected Color saveColor;
+	protected int resizeCorner;
+	
+	protected boolean toggleHighlight;
+	
 
 	protected ShapeObj shapeObj = null; 
 
@@ -32,6 +36,8 @@ public class SelectTool implements Tool {
 		// Set/Clear Canvas highlightedObj on button-press
 		int i;
 		boolean foundAnObject = false;
+		this.toggleHighlight = false;				
+
 		for (i = canvas.objsOnCanvas.size()-1 ; i >= 0 ; i-- ) {
 			System.out.println("From for loop in SelectTool. Object ["+i+"/"+(canvas.objsOnCanvas.size()-1)+"]");
 			shapeObj = canvas.objsOnCanvas.get(i);
@@ -39,10 +45,11 @@ public class SelectTool implements Tool {
 				foundAnObject = true;
 				System.out.println("SelectTool found object: " + shapeObj.toString());
 				if (canvas.highlightedObj == shapeObj) {
-					System.out.println("Un-Highlighting! " + shapeObj.toString());					
-					canvas.highlightedObj = null;
+//					System.out.println("Un-Highlighting! " + shapeObj.toString());					
+//					canvas.highlightedObj = null;
+					this.toggleHighlight = true;
 				}
-				else {
+//				else {
 					// This draws a highlight/bounding-box around object (if found) immediately on mousePress
 					System.out.println("Highlighting! " + shapeObj.toString());					
 					iBGraphics.setPaintMode();
@@ -50,7 +57,7 @@ public class SelectTool implements Tool {
 					shapeObj.drawObjBoundingBox(iBGraphics);
 					iBGraphics.setXORMode(Color.lightGray);					
 					canvas.highlightedObj = shapeObj;
-				}
+//				}
 				break;
 			}
 		}
@@ -59,6 +66,9 @@ public class SelectTool implements Tool {
 		if (foundAnObject == false) { 
 			canvas.highlightedObj = null; 
 		}
+		
+		
+		this.resizeCorner = shapeObj.resizeCornerSelected(startingMousePosition);
 		
 		canvas.repaint(); // Puts buffer to screen
 	}
@@ -118,32 +128,44 @@ public class SelectTool implements Tool {
 		iBGraphics.setColor(saveColor);
 		iBGraphics.setPaintMode();
 
-		// If found an object and dragged mouse, then this will be the final position drawing routine.
-		// After drawing at final position, highlight (highlight already done in mousePressed)
-		if ((canvas.highlightedObj != null) && (currentMousePosition != startingMousePosition)) {
-			shapeObj = canvas.highlightedObj;
-			int dX = currentMousePosition.x - startingMousePosition.x;
-			int dY = currentMousePosition.y - startingMousePosition.y;
+		int dX = currentMousePosition.x - startingMousePosition.x;
+		int dY = currentMousePosition.y - startingMousePosition.y;
+
+		// MOVE
+		if ((this.resizeCorner == 0) && 
+				(canvas.highlightedObj != null) && 
+				((dX != 0 || dY != 0))) {
 			System.out.println("Moving by ("+dX+", "+dY+")");
-			shapeObj.move(dX, dY);		
-//			System.out.println("(mouseReleased) Drawing bounding box on: " + shapeObj.toString());
-//			shapeObj.drawObjBoundingBox(iBGraphics);
+			shapeObj = canvas.highlightedObj;
+			shapeObj.move(dX, dY);	
+			this.toggleHighlight = false;
 		}
 		
-		// If didn't find an object then just de-highlight all objects (done in mousePressed) and redraw canvas
-		// i.e. do nothing special
-		
-		// Common
+		// RESIZE
+		if ((this.resizeCorner != 0) && 
+				(canvas.highlightedObj != null) && 
+				((dX != 0 || dY != 0))) {
+			System.out.println("Resizing Corner: " + this.resizeCorner + " by ("+dX+", "+dY+")");
+			shapeObj = canvas.highlightedObj;
+			shapeObj.resize(this.resizeCorner, dX, dY);
+			this.toggleHighlight = false;
+		}
+				
+		// Canvas Repainting after Move/Resize/Nothing
 		canvas.clearCanvas();
 		canvas.redrawObjs();
-		if (canvas.highlightedObj != null) { canvas.highlightedObj.drawObjBoundingBox(iBGraphics); }
+		
+		// Draw Bounding box if MOVED, RESIZED or SELECTED
+		if ((canvas.highlightedObj != null) && (this.toggleHighlight == false)) { 
+			shapeObj = canvas.highlightedObj;
+			shapeObj.drawObjBoundingBox(iBGraphics); 
+		}
 		
 		// If found an object and not dragged mouse, then toggle highlight for that object
-		if ((canvas.highlightedObj != null) && (currentMousePosition == startingMousePosition)) {
-//			shapeObj = canvas.highlightedObj;
-//			System.out.println("(mouseReleased)Drawing bounding box on: " + shapeObj.toString());					
-//			shapeObj.drawObjBoundingBox(iBGraphics); // Drawing toggles highlight
+		if ((this.toggleHighlight == true) && (dX == 0 && dY == 0)) {
+			canvas.highlightedObj = null; 
 		}
+
 		canvas.repaint(); // Puts buffer to screen		
 	}
 

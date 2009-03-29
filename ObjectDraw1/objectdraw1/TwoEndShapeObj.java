@@ -25,9 +25,6 @@ public abstract class TwoEndShapeObj extends ShapeObj {
 	abstract void drawOutline(Graphics g, int x0, int y0, int x1, int y1);
 	abstract void move(int delX, int delY);
 	abstract boolean isPointInObject(Point p);
-	abstract void drawObjBoundingBox(Graphics g);
-
-	//abstract void resize();  
-	//int isPointInObjectCorner(Point p);
+	abstract void drawObjBoundingBox(Graphics g);	
 
 }
