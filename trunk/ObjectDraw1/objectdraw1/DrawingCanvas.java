@@ -62,8 +62,6 @@ import java.util.EventListener;
 	  g.drawImage(imageBuffer, 0, 0, this);
   }
   
- 
-  
   public void drawLineSegment(Point p1, Point p2) {
    imageBufferGraphics.drawLine(p1.x,p1.y,
                 	       p2.x, p2.y);
@@ -115,9 +113,13 @@ import java.util.EventListener;
     imageBuffer = newimageBuffer;
     setpenColor(penColor);
     super.setBounds(x, y, width, height);
+    
+	//canvas.clearCanvas();
+	this.redrawObjs();
+	if (this.highlightedObj != null) { this.highlightedObj.drawObjBoundingBox(imageBufferGraphics); }   
     repaint();
     canvasWidth = width;
-    canvasHeight = height;
+    canvasHeight = height;    
   }
   
   public void redrawObjs() {
