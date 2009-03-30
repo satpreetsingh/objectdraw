@@ -115,19 +115,16 @@ public class RectangleShapeObj extends TwoEndShapeObj {
 				insideX = true; 
 			}
 		}
-
 		if (startp.y < endp.y) {
 			if (p.y <= endp.y && p.y >= startp.y) {
 				insideY = true; 
 			}
 		}
-
 		if (startp.y > endp.y) {
 			if (p.y >= endp.y && p.y <= startp.y) {
 				insideY = true; 
 			}
 		}
-
 		return insideX && insideY;
 
 	}
@@ -238,6 +235,8 @@ public class RectangleShapeObj extends TwoEndShapeObj {
 
 
 	public void resize(int corner, int delX, int delY) {
+//		System.out.println("resize(): " + corner + " by ("+delX+", "+delY+")");
+//		System.out.println("Before:: startp: ("+startp.x+", "+startp.y+")" + "endp: ("+endp.x+", "+endp.y+")");		
 		switch (corner) {
         case 1:  
         	System.out.println("Resizing TOP-LEFT corner"); 
@@ -263,7 +262,6 @@ public class RectangleShapeObj extends TwoEndShapeObj {
         	System.out.println("Invalid Corner?");
         	break;        
 		}
-		
 		
 		// Re-calc startp & endp
 		// This is a startp/endp correction routine IN CASE the startp/endp need to be interchanged
@@ -293,18 +291,16 @@ public class RectangleShapeObj extends TwoEndShapeObj {
 		else {
 			shapeY = y1;
 			shapeHeight = (y0-y1)+1;
-		}
-		
+		}		
 		startp.x = shapeX;
 		startp.y = shapeY;
-		endp.x = shapeX + shapeWidth;
-		endp.y = shapeY + shapeHeight;
+		endp.x = shapeX + shapeWidth -1;
+		endp.y = shapeY + shapeHeight -1;
 					
 	}
 
 	void toggleFill() {
 		this.isFilled = !(this.isFilled);
 	}
-	
-	
+		
 }

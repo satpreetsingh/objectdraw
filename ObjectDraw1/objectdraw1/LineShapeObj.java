@@ -240,8 +240,8 @@ public class LineShapeObj extends TwoEndShapeObj{
 		
 		startp.x = shapeX;
 		startp.y = shapeY;
-		endp.x = shapeX + shapeWidth;
-		endp.y = shapeY + shapeHeight;
+		endp.x = shapeX + shapeWidth - 1;
+		endp.y = shapeY + shapeHeight - 1;
 					
 	}
 
